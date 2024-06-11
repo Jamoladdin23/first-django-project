@@ -27,12 +27,5 @@ class BookForm(forms.ModelForm):  # this for work pryamo s modelyami, be worh po
 
         }
 
-# tut mi sozdali forms python file i copy vooks for togo wob do add book
-# etot varik mnogo pisat coda, est drugoy varik kak sozdat post, POST is dobavka texte
-# class BookForms(forms.Form):
-#     title = forms.CharField(max_length=128)
-#     description = forms.CharField(widget=forms.Textarea)
-#     cover_image = forms.ImageField()
-#     is_published = forms.BooleanField()
-#     author = forms.ModelChoiceField(queryset=Author.objects.all())
-#     genre = forms.ModelChoiceField(queryset=Genre.objects.all())
+
+print("hello")
