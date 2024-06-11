@@ -28,4 +28,3 @@ class BookForm(forms.ModelForm):  # this for work pryamo s modelyami, be worh po
         }
 
 
-print("hello")
