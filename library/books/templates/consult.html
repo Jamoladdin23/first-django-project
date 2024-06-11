@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% block content %}
+<head>
+    <title>Consultant</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="mb-4">Запитати у консультанта</h1>
+
+        <form id="chat-form" class="mb-4">
+            <div class="input-group">
+                <input type="text" id="user-input" placeholder="Введіть ваше питання..." class="form-control">
+                <div class="input-group-append">
+                    <button type="submit" class="btn btn-primary">Надіслати</button>
+                </div>
+            </div>
+        </form>
+
+        <!-- Анімація завантаження -->
+        <div id="loading-spinner" class="spinner-border text-primary mb-3" role="status" style="display: none;">
+            <span class="sr-only">Завантаження...</span>
+        </div>
+
+        <div id="chat-response" class="border p-3">
+            <!-- Тут буде відповідь від консультанта -->
+        </div>
+    </div>
+
+    <script>
+        $("#chat-form").submit(function(e) {
+            e.preventDefault();
+
+<!--            // Показати анімацію-->
+            $("#loading-spinner").show();
+
+            let userInput = $("#user-input").val();
+            $.get("/chat_with_gpt/", { user_input: userInput }, function(data) {
+<!--                // Сховати анімацію-->
+                $("#loading-spinner").hide();
+
+                $("#chat-response").text("Консультант: " + data.response);
+                $("#user-input").val(''); // Цей рядок очищує поле введення
+            });
+        });
+    </script>
+</body>
+{% endblock %}
