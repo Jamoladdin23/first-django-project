@@ -12,9 +12,6 @@ class RegisterViews(CreateView):
     template_name = 'custom_auth/registration.html'
 
 
-# eto vrode vse, napravili na shablkon i castomizovali
-# teper need to create urls.pr
-
 def login_view(request):
     if request.method == 'POST':
         form = LoginForm(data=request.POST)  # tut v form berem dannie

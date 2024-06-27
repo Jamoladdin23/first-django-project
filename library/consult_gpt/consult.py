@@ -7,7 +7,7 @@ def chat_with_gpt(request):
     user_input = request.GET.get('user_input')
 
     if not user_input:
-        return JsonResponse({"response": "zapros ne mojet bit pustim"})
+        return JsonResponse({"response": "request cannot be empty"})
 
     openai.api_key = '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'
 
