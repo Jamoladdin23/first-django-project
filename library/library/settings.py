@@ -13,7 +13,7 @@ import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent#PUT DO DIRECTORY
+BASE_DIR = Path(__file__).resolve().parent.parent
 
 
 # Quick-start development settings - unsuitable for production
@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-d0xf47vx0r(r8dufxfw&f@n!a4%t+t21bu-nhbe3m0ga+#$d#&
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -39,9 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'books.apps.BooksConfig',
     'custom_auth.apps.CustomAuthConfig',
-    'debug_toolbar',# eto mi instaluvali cerez pip i sem napisali
+    'debug_toolbar',
 ]
-# nije : is srabativaet pered tem kak popast v controller, kogda zapros otpravlyaetsya v server, postepenno,, na response s nizu vverx
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -50,14 +49,11 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'debug_toolbar.middleware.DebugToolbarMiddleware',# dopishem sem eto, niznayu co
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
 ]
-# its new for nastroyki toolbar
 INTERNAL_IPS = [
     '127.0.0.1'
 ]
-
-# AUTH_USER_MODEL = 'custom_auth.CustomUser'# ist all v nacale sozdaetsya,, eto ne ispolzuem,, polzuem bazoviy model
 
 ROOT_URLCONF = 'library.urls'
 
@@ -80,12 +76,9 @@ TEMPLATES = [
 WSGI_APPLICATION = 'library.wsgi.application'
 
 
-# Database
-# https://docs.djangoproject.com/en/5.0/ref/settings/#databases
-
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',#MI TUT SOZDALI DB I CONNECTED
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'django_db',
         'USER': 'djando_project',
         'PASSWORD': 'prague2024',
@@ -131,10 +124,12 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
-# os.path.join
-# BASE_DIR/'static' MOJNO TAK BEZ os.path
+
+
 MEDIA_URL = 'media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 

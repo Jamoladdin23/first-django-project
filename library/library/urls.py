@@ -15,15 +15,15 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 
-from django.conf import settings# need to know what is it
-from django.conf.urls.static import static# and it
+from django.conf import settings
+from django.conf.urls.static import static
 
 from django.contrib import admin
 from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include("books.urls")),# tut ukazuem s takim putyom need pereyti na url patterns v seredine books i urls
+    path('', include("books.urls")),
     path('', include('custom_auth.urls')),
 
 
@@ -33,4 +33,4 @@ if settings.DEBUG:
     import debug_toolbar
 
     urlpatterns += [path('__debug__', include(debug_toolbar.urls))]
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)# need  eti nastrojki to do
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
