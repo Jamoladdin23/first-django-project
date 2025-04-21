@@ -7,6 +7,7 @@ This is a web application for managing book rentals. The project includes:
 - Secure handling of data using PostgreSQL.
 - Storing sensitive information in a `.env` file.
 - Authentication and authorization for user accounts.
+- This project integrates OpenAI's API to provide advanced functionalities like GPT-based chat support.
 
 ## Features
 - User registration and login/logout functionality.
